@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>随机问候语</title>
+    <style>
+      .scroll-container {
+          width: 100%;
+          overflow: hidden;
+      }
+
+      .scroll-text {
+          white-space: nowrap;
+          animation: scroll 10s linear infinite;
+      }
+
+      @keyframes scroll {
+          from {
+              transform: translateX(100%);
+          }
+          to {
+              transform: translateX(-100%);
+          }
+      }
+    </style>
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="scroll-container">
+        <div id="message" class="scroll-text text-2xl font-bold text-gray-800"></div>
+    </div>
+    <script>
+        const messages = ["你好", "别生气", "开心一点"];
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        const randomMessage = messages[randomIndex];
+        document.getElementById('message').textContent = randomMessage;
+    </script>
+</body>
+</html>
+    
